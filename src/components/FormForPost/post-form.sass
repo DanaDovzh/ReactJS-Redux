@@ -44,8 +44,24 @@ $maxWidth: 1440
             &:active
                 transform: scale(0.9)
     &__warning
-        color: #f80404
+        color: #f50000
         font-weight: 800
-        @include adaptivFont(22, 14)
+        @include adaptivFont(30, 14)
         text-align: center
         margin: 10px 0px
+        text-shadow: 1px 0px 1px #000000, 
+        0px 1px 1px #574747, 
+        2px 1px 1px #000000, 
+        1px 2px 1px #574747, 
+        3px 2px 1px #000000, 
+        2px 3px 1px #574747,
+        4px 3px 1px #000000
+        animation: blink 1s linear infinite
+
+@keyframes blink
+    0%  
+        opacity: 0
+    50%
+        opacity: .5
+    100%
+        opacity: 1
