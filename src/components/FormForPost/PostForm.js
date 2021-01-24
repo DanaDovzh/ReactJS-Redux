@@ -13,7 +13,7 @@ const PostForm = (props) => {
   const contentHandler = (e) => setContent(e.target.value);
   const linkImgHandler = (e) => setLinkImg(e.target.value);
   const postAuthorHandler = (e) => setPostAuthor(e.target.value);
-  const authors = props.posts.map(post =>  (post.name));
+  const authors = props.posts.map(post => (post.name));
   const unAuthor = Array.from(new Set(authors));
 
   const resetInput = () => {
@@ -25,7 +25,7 @@ const PostForm = (props) => {
   const sendPost = (e) => {
     e.preventDefault();
     if (!content || !linkImg) {
-      setCheckField(false); 
+      setCheckField(false);
     } else {
       const newPost = {
         name: postAuthor,
@@ -35,10 +35,10 @@ const PostForm = (props) => {
       setCheckField(true);
       props.addPost(newPost);
       resetInput();
-    }    
+    }
   }
 
-  
+
   useEffect(() => {
     setContent(content);
     setLinkImg(linkImg);
@@ -50,24 +50,24 @@ const PostForm = (props) => {
       <h2 className='form-header'>Add Post</h2>
       <form noValidate className='form'>
         <input
-        className='form__input'
+          className='form__input'
           onChange={(e) => contentHandler(e)}
           type='text'
           value={content}
           placeholder="What do you want to say?"
         />
         <input
-        className='form__input'
+          className='form__input'
           onChange={(e) => linkImgHandler(e)}
           type='text'
           value={linkImg}
           placeholder="Enter link for image"
         />
 
-        <select 
-        onChange={(e) => postAuthorHandler(e)} 
-        className='form__input'>
-          <option value="none" hidden="" disabled>
+        <select
+          onChange={(e) => postAuthorHandler(e)}
+          className='form__input'>
+          <option value="none" disabled>
             Choose author
         </option>
           {unAuthor.map(author => <option value={author}>{author}</option>)}
@@ -88,7 +88,7 @@ const PostForm = (props) => {
 }
 
 const mapStateToProps = (store) => {
-  console.log(store) // посмотрим, что же у нас в store?
+  console.log(store) 
   return {
     posts: store.posts,
   }
@@ -96,7 +96,7 @@ const mapStateToProps = (store) => {
 
 const mapDispatchToProps = {
   // return {
-    addPost,
+  addPost,
   // }
 }
 
