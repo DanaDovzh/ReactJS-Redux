@@ -1,0 +1,48 @@
+$context: 16
+$maxWidth: 1440
+
+@mixin adaptivFont($pcSize, $mobSize)
+    $addSize: $pcSize - $mobSize
+    $maxWidth: $maxWidth - 320
+    font-size: calc(#{$mobSize + px} + #{$addSize} * ((100vw - 320px) / #{$maxWidth}))
+
+.block-form
+    display: flex
+    flex-direction: column
+    width: 70%
+    align-items: center
+
+.form-header
+    @include adaptivFont(28, 16)
+    letter-spacing: 1.5px
+    text-align: center
+    text-decoration-line: underline
+    text-decoration-color: darkblue
+
+.form
+    display: flex
+    flex-direction: column
+    margin: 0 15px
+    width: 65%
+   
+    &__input
+        margin: 5px 0
+        height: 30px
+        border-radius: 20px
+        border: none
+        outline: none
+        padding: 0 10px
+        &:focus
+            box-shadow: 5px 2px 17px 4px #000000
+        &--btn
+            cursor: pointer
+            color: white
+            background: #090363
+            &:active
+                transform: scale(0.9)
+    &__warning
+        color: #f80404
+        font-weight: 800
+        @include adaptivFont(22, 14)
+        text-align: center
+        margin: 10px 0px
