@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { connect } from 'react-redux';
-import { addPost } from '../../store/actions';
+
+import { addPost } from '../../store/actions/actions';
 
 import './post-form.sass';
+
 const PostForm = (props) => {
 
   const [content, setContent] = useState('');
@@ -37,7 +39,6 @@ const PostForm = (props) => {
       resetInput();
     }
   }
-
 
   useEffect(() => {
     setContent(content);
@@ -88,16 +89,14 @@ const PostForm = (props) => {
 }
 
 const mapStateToProps = (store) => {
-  console.log(store) 
+  console.log(store)
   return {
     posts: store.posts,
   }
 }
 
 const mapDispatchToProps = {
-  // return {
   addPost,
-  // }
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(PostForm);

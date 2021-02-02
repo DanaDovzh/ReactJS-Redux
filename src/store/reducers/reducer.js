@@ -1,12 +1,13 @@
-import postIron from '../img/content/iron_man_body.jpg';
-import avatarIron from '../img/avatar/avatar_iron.jpg';
-import avatarGroot from '../img/avatar/groot.png';
-import postGroot from '../img/content/groot_body.jpg';
-import { getRandomNumber, createIdGenerator } from '../components/Post/funcions';
-import { ADD_POST, LIKED, COMMENTED, SHARE } from './types';
+import { getRandomNumber, createIdGenerator } from '../../helpers/functions';
+
+import postIron from '../../img/content/iron_man_body.jpg';
+import avatarIron from '../../img/avatar/avatar_iron.jpg';
+import avatarGroot from '../../img/avatar/groot.png';
+import postGroot from '../../img/content/groot_body.jpg';
+
 const starId = createIdGenerator(1);
 
-export const arrayPosts = {
+const initialState = {
   posts: [
     {
       id: starId.next().value,
@@ -43,24 +44,28 @@ export const arrayPosts = {
       isShared: false,
       isComment: false
     }
-
   ],
 };
 
+export const actionTypes = {
+  addPost: 'ADD_POST',
+  liked: 'ADD_lIKE',
+  commented: 'LEAVE_COMMENT',
+  share: 'TO_SHARE'
+}
 
-export function rootReducer(state = arrayPosts, action) {
+export function rootReducer(state = initialState, action) {
   switch (action.type) {
-    case LIKED: {
-      const whosPost = document.getElementById(action.author);
+    case actionTypes.liked: {
+      const whosPost = document.getElementById(action.payload.id);
       const liked = whosPost.querySelector(".post__footer--likes");
       const updateLike = state.posts;
       const newArrayPost = [];
-      
+
       liked.classList.toggle("unlike");
       liked.classList.toggle("liked");
-      
       updateLike.forEach(post => {
-        if (post.id == action.author) {
+        if (post.id === action.payload.id) {
           (!post.isliked) ? post.likes++ : post.likes--;
           post.isliked = !post.isliked;
           newArrayPost.push(post)
@@ -72,11 +77,11 @@ export function rootReducer(state = arrayPosts, action) {
         posts: newArrayPost,
       }
     };
-    case COMMENTED: {
+    case actionTypes.commented: {
       const newArrayPost = [];
       const updateComments = state.posts;
       updateComments.forEach(post => {
-        if (post.id == action.author) {
+        if (post.id === action.payload.id) {
           (!post.isComment) ? post.comments++ : post.comments--;
           post.isComment = !post.isComment;
           newArrayPost.push(post)
@@ -88,11 +93,11 @@ export function rootReducer(state = arrayPosts, action) {
         posts: newArrayPost,
       }
     };
-    case SHARE: {
+    case actionTypes.share: {
       const newArrayPost = [];
       const updateShare = state.posts;
       updateShare.forEach(post => {
-        if (post.id == action.author) {
+        if (post.id === action.payload.id) {
           (!post.isShared) ? post.share++ : post.share--;
           post.isShared = !post.isShared;
           newArrayPost.push(post)
@@ -104,8 +109,8 @@ export function rootReducer(state = arrayPosts, action) {
         posts: newArrayPost,
       }
     };
-    case ADD_POST: {
-      const { name, content, imageContent } = action.newPost;
+    case actionTypes.addPost: {
+      const { name, content, imageContent } = action.payload.newPost;
       const newPostAdd = {
         id: starId.next().value,
         name: name,
@@ -127,7 +132,6 @@ export function rootReducer(state = arrayPosts, action) {
       }
     }
     default: {
-
       return state;
     }
   }
