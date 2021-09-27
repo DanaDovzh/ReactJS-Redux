@@ -1,0 +1,25 @@
+{
+  "files": {
+    "main.css": "/ReactJS-Redux/static/css/main.47446867.chunk.css",
+    "main.js": "/ReactJS-Redux/static/js/main.b547277c.chunk.js",
+    "main.js.map": "/ReactJS-Redux/static/js/main.b547277c.chunk.js.map",
+    "runtime-main.js": "/ReactJS-Redux/static/js/runtime-main.27ccb73d.js",
+    "runtime-main.js.map": "/ReactJS-Redux/static/js/runtime-main.27ccb73d.js.map",
+    "static/js/2.79993cc8.chunk.js": "/ReactJS-Redux/static/js/2.79993cc8.chunk.js",
+    "static/js/2.79993cc8.chunk.js.map": "/ReactJS-Redux/static/js/2.79993cc8.chunk.js.map",
+    "index.html": "/ReactJS-Redux/index.html",
+    "static/css/main.47446867.chunk.css.map": "/ReactJS-Redux/static/css/main.47446867.chunk.css.map",
+    "static/js/2.79993cc8.chunk.js.LICENSE.txt": "/ReactJS-Redux/static/js/2.79993cc8.chunk.js.LICENSE.txt",
+    "static/media/avatar_iron.c27f03d1.jpg": "/ReactJS-Redux/static/media/avatar_iron.c27f03d1.jpg",
+    "static/media/post.sass": "/ReactJS-Redux/static/media/share.e1c80149.svg",
+    "static/media/groot.94297dd0.png": "/ReactJS-Redux/static/media/groot.94297dd0.png",
+    "static/media/groot_body.bf82b906.jpg": "/ReactJS-Redux/static/media/groot_body.bf82b906.jpg",
+    "static/media/iron_man_body.61f89ae4.jpg": "/ReactJS-Redux/static/media/iron_man_body.61f89ae4.jpg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.27ccb73d.js",
+    "static/js/2.79993cc8.chunk.js",
+    "static/css/main.47446867.chunk.css",
+    "static/js/main.b547277c.chunk.js"
+  ]
+}
